@@ -58,6 +58,17 @@ Task:
 1) Make an object used as a "map" (key → value), e.g., course codes → titles.
 2) Iterate over it with for...in and display each key and value.
 */
+const courses = {
+  CS104: "Python",
+  MATH201: "Linear Algebra",
+  ENG102: "English Literature",
+  PHY102gi: "Physics II"
+};
+
+console.log("\nCourses:");
+for (let code in courses) {
+  console.log(`${code}: ${courses[code]}`);
+}
 
 // =========================================
 // TODO-3: STRING OBJECT — charAt() & length
@@ -67,6 +78,12 @@ Task:
 1) Create a String object or plain string.
 2) Use .charAt(index) and .length to output characters and size.
 */
+const sampleString = "JavaScript";
+console.log("\nString:", sampleString);
+console.log("Length:", sampleString.length);
+console.log("Character at index 0:", sampleString.charAt(0));
+console.log("Character at last index:", sampleString.charAt(sampleString.length - 1));
+
 
 // ===================================
 // TODO-4: DATE — day, month, and year
@@ -77,7 +94,11 @@ Task:
 2) Find and display the current day of month, month (0–11), and year.
 //    (Hint: getDate(), getMonth(), getFullYear() )
 */
-
+const currentDate = new Date();
+console.log("\nCurrent Date Info:");
+console.log("Day of Month:", currentDate.getDate());
+console.log("Month (0-11):", currentDate.getMonth());
+console.log("Year:", currentDate.getFullYear());
 // ============================================================
 // TODO-5: ARRAY + SPREAD — find MIN and MAX from 10 numbers
 // ============================================================
@@ -87,6 +108,17 @@ Task:
 2) Use spread syntax with Math.min(...) and Math.max(...) to find extremes.
 3) Display both values.
 */
+const numbers = [12, 45, 7, 89, 3, 64, 23, 56, 90, 18];
+
+const min = Math.min(...numbers);
+const max = Math.max(...numbers);
+
+
+console.log("\nNumbers:", numbers);
+console.log("Minimum:", min);
+
+console.log("Maximum:", max);
+
 
 // ===================================================================
 // TODO-6: EXCEPTIONS — try/catch/finally with EMPTY ARRAY edge case
@@ -98,6 +130,30 @@ Task:
 3) Handle the error using try { ... } catch (e) { ... } finally { ... } and log messages
    in each block so you can see the flow of control.
 */
+function getMaxFromArray(arr) {
+
+  if (arr.length === 0) {
+
+    throw new Error("Array is empty!");
+  }
+
+  return Math.max(...arr);
+}
+
+const testArray = [];
+
+try {
+  const maxValue = getMaxFromArray(testArray);
+  console.log("Max Value:", maxValue);
+
+} catch (error) {
+
+  console.error("Error:", error.message);
+} finally {
+
+
+  console.log("Execution completed in try/catch/finally block.");
+}
 
 // ===================================================================================
 // TODO-7: REGEX + forEach — find words containing 'ab' and log matches from the list
@@ -110,5 +166,17 @@ Given: const words = ["ban", "babble", "make", "flab"];
 3) For matches, log "<word> matches!".
 4) Display the words that matches the pattern.
 */
+const words = ["ban", "babble", "make", "flab"];
+const pattern = /ab/;
+console.log("\nWords matching 'ab':");
+
+words.forEach(word => {
+
+  if (pattern.test(word)) {
+
+    console.log(`${word} matches!`);
+  }
+});
+
 
 // End of Advance JavaScript Lab — good luck!
