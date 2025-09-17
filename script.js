@@ -22,6 +22,34 @@ Task:
 4) Create an instance/object and output its attributes using the getter(s).
 */
 
+
+const student = {
+  firstName: "Eyad",
+  lastName: "Shahat",
+  _gpa: 3.5,
+
+  get fullName() {
+    return `${this.firstName} ${this.lastName}`;
+  },
+
+  set gpa(newGpa) {
+    if (newGpa >= 0.0 && newGpa <= 4.0) {
+      this._gpa = newGpa;
+    } else {
+      console.error("Invalid GPA! Must be between 0.0 and 4.0");
+    }
+  },
+
+  get gpa() {
+    return this._gpa;
+  }
+};
+
+console.log("Full Name:", student.fullName);
+console.log("Initial GPA:", student.gpa);
+student.gpa = 3.9; 
+console.log("Updated GPA:", student.gpa);
+student.gpa = 5.0; 
 // ====================================
 // TODO-2: OBJECT AS MAP + for...in LOOP
 // ====================================
